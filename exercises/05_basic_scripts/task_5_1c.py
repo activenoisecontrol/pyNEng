@@ -23,7 +23,7 @@ $ python task_5_1c.py
 Все задания надо выполнять используя только пройденные темы.
 То есть эту задачу можно решить без использования условия if.
 """
-
+device = input('Enter hostname: ')
 london_co = {
     "r1": {
         "location": "21 New Globe Walk",
@@ -49,3 +49,7 @@ london_co = {
         "routing": True,
     },
 }
+parametr = input('Enter parametr ('+ ','.join(london_co[device].keys())+'): ')
+print(london_co[device].get(parametr,'This parametr not in list'))
+
+
