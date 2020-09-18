@@ -10,8 +10,10 @@
 
 """
 from sys import argv
-address = argv[1].split('.')
-mask = argv[2]
+
+ip = argv[1].split('/')
+address = ip[0].split('.')
+mask = ip[1]
 
 mask = '1' * int(mask)
 mask = '{:<032}'.format(mask)
@@ -25,12 +27,7 @@ mask_temp = '''
     {0:08b}  {1:08b}  {2:08b}  {3:08b}
     '''
 
-first = int(address[0])
-second = int(address[1])
-third = int(address[2])
-fourth = int(address[3])
-
-ip_bin = '{:08b}{:08b}{:08b}{:08b}'.format(first, second, third, fourth)
+ip_bin = '{:08b}{:08b}{:08b}{:08b}'.format(int(address[0]),int(address[1]),int(address[2]),int(address[3]))
 net_add = '{:>032}'.format(bin(int(ip_bin,2) & int(mask,2)).replace('0b',''))
 
 oktet1 = int(net_add[0:8],2)
@@ -42,8 +39,10 @@ net_temp = '''
     {0:<8}  {1:<8}  {2:<8}  {3:<8}
     {0:08b}  {1:08b}  {2:08b}  {3:08b}
 '''
+print(' ')
 print('+'*50)
-print('Вы ввели IP адрес ' + argv[1] + ' с префиксом ' + argv[2])
+print(' ')
+print('Вы ввели IP адрес ' + ip[0] + ' с префиксом ' + ip[1])
 
 print(net_temp.format(oktet1, oktet2, oktet3, oktet4))
 
