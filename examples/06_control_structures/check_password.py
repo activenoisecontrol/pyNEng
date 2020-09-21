@@ -3,13 +3,17 @@
 username = input('Введите имя пользователя: ')
 password = input('Введите пароль: ')
 
-if len(password) < 8:
-    print('Пароль слишком короткий')
-elif username in password:
-    print('Пароль содержит имя пользователя')
-else:
-    print('Пароль для пользователя {} установлен'.format(username))
-
+while True:
+    if len(password) < 8:
+        print('Пароль слишком короткий')
+    elif username in password:
+        print('Пароль содержит имя пользователя')
+    elif '@' not in password:
+        print('В пароле должна быть @: ')
+    else:
+        print('Пароль для пользователя {} установлен'.format(username))
+        break
+    password = input('Введите пароль еще раз: ')
 '''
 Usage example:
 
