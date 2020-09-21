@@ -11,6 +11,11 @@
 То есть эту задачу можно решить без использования условия if и циклов for/while.
 """
 
+mode = input('Введите режим работы интерфейса: ')
+inter = input('Введите тип и номер интерфейса: ')
+vlan_template = {'trunk':'Введите разрешенные VLANы: ','access':'Введите номер VLAN: '}
+vlan = input(vlan_template[mode])
+
 access_template = [
     "switchport mode access",
     "switchport access vlan {}",
@@ -24,3 +29,8 @@ trunk_template = [
     "switchport mode trunk",
     "switchport trunk allowed vlan {}",
 ]
+
+mode_list = {'trunk': trunk_template,'access': access_template}
+print('interface {}'.format(inter))
+print('\n'.join(mode_list[mode]).format(vlan))
+
