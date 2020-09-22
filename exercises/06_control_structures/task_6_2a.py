@@ -19,7 +19,7 @@
 """
 ip = input('Введите IP: ')
 octets = ip.split('.')
-if len(octets)==4 and (octets[0]+octets[1]+octets[2]+octets[3]).isdigit():
+if len(octets)==4 and (octets[0]+octets[1]+octets[2]+octets[3]).isdigit() and int(octets[0]) + int(octets[1]) + int(octets[2]) + int(octets[3])<=4*255:
     if int(octets[0]) in range(1,224):
         print('unicast')
     elif int(octets[0]) in range(224,240):
