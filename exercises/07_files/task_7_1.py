@@ -13,3 +13,18 @@ Outbound Interface    FastEthernet0/0
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+
+with open('ospf.txt', 'r') as f:
+    list_listov = []
+    for line in f:
+        list_listov.append(line.replace('O        ','').replace('via ','').replace(',','').rstrip().split(' '))
+    for list in list_listov:
+        print('''
+Prefix               {}
+AD/Metric            {}
+Next-Hop             {}
+Last Update          {}
+Otbound Interface    {}
+'''.format(list[0],list[1].strip('[]'),list[2],list[3],list[4]))
+
+
