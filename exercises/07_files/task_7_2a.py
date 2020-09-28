@@ -8,6 +8,8 @@ with open('config_sw1.txt') as f:
             continue
         elif line.startswith(tuple(ignore)):
             continue
+        elif line.startswith(' '+ignore[0]):
+            continue
         else:
             print(line.rstrip())
 
