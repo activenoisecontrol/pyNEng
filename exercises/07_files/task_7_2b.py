@@ -14,3 +14,13 @@
 """
 
 ignore = ["duplex", "alias", "Current configuration"]
+with open('config_sw1.txt') as src, open('config_sw1_cleared.txt','w') as dst:
+    for line in src:
+        if line.startswith(tuple(ignore)):
+            continue
+        elif line.startswith(' '+ignore[0]):
+            continue
+        else:
+            dst.write(line)
+    
+
