@@ -17,3 +17,8 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+with open('CAM_table.txt') as mac:
+    for line in mac:
+        if line.rstrip('\n').split('   ')[0].lstrip(' ').isdigit():
+            line = line.rstrip('\n').split('   ')
+            print(line[0].lstrip(' ')+ '  ' + line[1] + line[3])
