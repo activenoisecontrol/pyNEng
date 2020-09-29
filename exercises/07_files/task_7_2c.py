@@ -16,4 +16,16 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
 
+from sys import argv
+file1 = argv[1]
+file2 = argv[2]
 ignore = ["duplex", "alias", "Current configuration"]
+with open(file1) as src, open(file2,'w') as dst:
+    for line in src:
+        if line.startswith(tuple(ignore)):
+            continue
+        elif line.startswith(' '+ignore[0]):
+            continue
+        else:
+            dst.write(line)
+
