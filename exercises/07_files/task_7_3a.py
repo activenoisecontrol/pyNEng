@@ -24,3 +24,15 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+with open('CAM_table.txt') as mac:
+    line_mac = []
+    for line in mac:
+        if line.rstrip('\n').split('   ')[0].lstrip(' ').isdigit():
+            line = line.rstrip('\n').split('   ')
+            line[0] = int(line[0])
+            line_mac.append([line[0], line[1], line[3]])
+            line_mac.sort()
+    for line in line_mac:
+        line[0] = str(line[0]) + '  '
+        print(''.join(line))
+
